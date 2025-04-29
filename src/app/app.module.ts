@@ -7,10 +7,22 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RatingSystemComponent } from './components/rating-system/rating-system.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RecipeListComponent } from './pages/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './pages/recipe-detail/recipe-detail.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    RatingSystemComponent,
+    HomeComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
