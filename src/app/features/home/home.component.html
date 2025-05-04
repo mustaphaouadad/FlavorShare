@@ -1,0 +1,37 @@
+<div class="bg-xenos-yellow text-green-900 min-h-screen font-sans">
+  
+  <section class="px-8 py-10">
+    <h2 class="text-3xl font-bold mb-6 text-center">Tendance</h2>
+    <div *ngIf="isLoading" class="flex justify-center">
+      <div class="animate-spin rounded-full h-12 w-12 border-t-4 border-yellow-500"></div>
+    </div>
+    <div *ngIf="!isLoading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div *ngFor="let item of tendance" class="bg-white rounded-xl p-4 shadow-md hover:scale-105 transition-transform duration-300">
+        <img [src]="item.image" [alt]="item.name" class="w-full h-40 object-cover rounded-lg mb-4" />
+        <h3 class="text-lg font-semibold text-green-900 tracking-wide mb-2">{{ item.name }}</h3>
+        <div class="flex justify-center mb-4">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+            <svg
+              (click)="setRating(item.id, i + 1)"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 cursor-pointer"
+              [ngClass]="{ 'text-yellow-500': i < item.rating, 'text-gray-500': i >= item.rating }"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.955a1 1 0 00.95.69h4.167c.969 0 1.371 1.24.588 1.81l-3.37 2.448a1 1 0 00-.364 1.118l1.286 3.955c.3.921-.755 1.688-1.54 1.118L10 14.347l-3.37 2.448c-.785.57-1.84-.197-1.54-1.118l1.286-3.955a1 1 0 00-.364-1.118L2.643 9.382c-.783-.57-.38-1.81.588-1.81h4.167a1 1 0 00.95-.69l1.286-3.955z"
+              />
+            </svg>
+          </ng-container>
+        </div>
+        <a
+          [routerLink]="['/recipe', item.id]"
+          class="mt-3 inline-block bg-yellow-500 hover:bg-yellow-400 text-green-900 font-bold py-2 px-4 rounded-full transition duration-300 cursor-pointer"
+        >
+          Show Details
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

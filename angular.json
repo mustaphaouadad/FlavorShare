@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "flavorshare": {
+    "recipes-app": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/flavorshare",
+            "outputPath": "dist/recipes-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,18 +25,9 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -76,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "flavorshare:build:production"
+              "buildTarget": "recipes-app:build:production"
             },
             "development": {
-              "buildTarget": "flavorshare:build:development"
+              "buildTarget": "recipes-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "flavorshare:build"
+            "buildTarget": "recipes-app:build"
           }
         },
         "test": {
@@ -103,7 +84,6 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -113,6 +93,6 @@
     }
   },
   "cli": {
-    "analytics": "de19e98c-05df-4789-acd1-f9cce7001761"
+    "analytics": "a1b0e91c-de8d-4476-a04c-7681074f532f"
   }
 }
